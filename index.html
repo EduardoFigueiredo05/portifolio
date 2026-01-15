@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio - Eduardo Figueiredo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #1a1a29;
+            --card-bg: #222232;
+            --primary-color: #ff4a57;
+            --warning-color: #ffc107;
+            --text-white: #ffffff;
+            --text-gray: #a9adb8;
+            --border-radius: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Container Geral */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        /* Elemento Decorativo Vertical */
+        .decoration-line {
+            position: absolute;
+            right: 50px;
+            top: 150px;
+            bottom: 100px;
+            width: 2px;
+            background: linear-gradient(to bottom, transparent, var(--text-gray), transparent);
+            display: none;
+            z-index: 0;
+        }
+
+        .decoration-dot {
+            width: 12px;
+            height: 12px;
+            border: 2px solid var(--primary-color);
+            background: var(--bg-color);
+            border-radius: 50%;
+            position: absolute;
+            left: -5px;
+        }
+        
+        @media (min-width: 992px) {
+            .decoration-line { display: block; }
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            background: var(--bg-color);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-style: italic;
+        }
+        
+        .logo span { color: var(--text-white); }
+
+        nav ul {
+            display: none;
+            gap: 30px;
+            list-style: none;
+        }
+
+        nav ul li a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        /* Efeito de Link Ativo */
+        nav ul li a.active,
+        nav ul li a:hover { 
+            color: var(--primary-color); 
+        }
+        
+        nav ul li a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        @media (min-width: 768px) {
+            nav ul { display: flex; }
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span { font-weight: 300; display: block; font-size: 2rem; }
+
+        .hero p {
+            color: var(--text-gray);
+            max-width: 500px;
+            margin-bottom: 30px;
+        }
+
+        /* Botão Ajustado (Menor) */
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 24px; /* Padding reduzido */
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem; /* Fonte levemente menor */
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(255, 74, 87, 0.3);
+            width: fit-content;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 74, 87, 0.4);
+        }
+
+        /* Titles */
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-subtitle {
+            color: var(--text-white);
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+
+        /* Skills Section */
+        .skills-section { padding: 80px 0; }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .grid-3 { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (min-width: 992px) {
+            .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            background-color: #2a2a3d;
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .card p {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+        }
+
+        /* === SEÇÃO: MEUS PROJETOS === */
+        .projects-section {
+            padding: 80px 0;
+            border-top: 1px solid #ffffff0d;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid transparent;
+            height: 100%;
+            position: relative;
+        }
+
+        .project-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        /* WIP Badge */
+        .badge-wip {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--warning-color);
+            color: #1a1a29;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            z-index: 10;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .project-img {
+            height: 200px;
+            background-color: #0f0f1a;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            transition: transform 0.5s ease;
+        }
+        
+        /* Video Container */
+        .project-video iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Placeholder Icon */
+        .project-img-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #2a2a3d;
+        }
+        
+        .project-img-placeholder i {
+            font-size: 3rem;
+            color: var(--text-gray);
+            opacity: 0.5;
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.05);
+        }
+
+        .project-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-content h3 {
+            color: var(--text-white);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .project-desc {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        /* Badges de Tecnologias */
+        .project-tech {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+
+        .tech-badge {
+            font-size: 0.7rem;
+            padding: 4px 8px;
+            background: rgba(255, 74, 87, 0.1);
+            color: var(--primary-color);
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        /* Seção de Skills */
+        .project-skills {
+            font-size: 0.8rem;
+            color: var(--text-gray);
+            margin-bottom: 20px;
+            border-top: 1px solid #333;
+            padding-top: 10px;
+        }
+
+        .project-skills strong {
+            color: var(--text-white);
+            display: block;
+            margin-bottom: 4px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .project-links {
+            margin-top: auto;
+            display: flex;
+            gap: 15px;
+        }
+
+        .project-links a {
+            color: var(--text-white);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 8px 16px;
+            background: #2a2a3d;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+        
+        .project-links a:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Contact Section */
+        .contact-section { padding: 80px 0; }
+        
+        .contact-form {
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            background-color: #222232;
+            border: 1px solid #333;
+            color: white;
+            border-radius: 4px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        /* Classe utilitária para espaçamento extra */
+        .mt-large { margin-top: 60px; }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="decoration-line">
+            <div class="decoration-dot" style="top: 10%;"></div>
+            <div class="decoration-dot" style="top: 40%;"></div>
+            <div class="decoration-dot" style="top: 70%;"></div>
+        </div>
+
+        <header>
+            <div class="logo">Eduardo Figueiredo</div>
+            <nav>
+                <ul>
+                    <li><a href="#hero" class="nav-link active">Home</a></li>
+                    <li><a href="#skills" class="nav-link">Habilidades</a></li>
+                    <li><a href="#projects" class="nav-link">Projetos</a></li>
+                    <li><a href="#contact" class="nav-link">Contato</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section id="hero" class="hero">
+            <h1><span>Olá, sou um</span> Desenvolvedor Web</h1>
+            <p>Especialista em criar aplicações modernas, unindo design intuitivo e código robusto para transformar ideias em soluções digitais escaláveis, como ERPs e Dashboards.</p>
+            <a href="#contact" class="btn">Entre em contato comigo</a>
+        </section>
+
+        <section id="skills" class="skills-section">
+            <h4 class="section-subtitle">O que eu faço</h4>
+            <h2 class="section-title">Habilidades</h2>
+            
+            <div class="grid-3">
+                <div class="card">
+                    <i class="fab fa-git-alt card-icon"></i>
+                    <h3>Controle de Versão (Git)</h3>
+                    <p>Gerenciamento seguro de código e colaboração eficiente em projetos, garantindo histórico e integridade do software.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-chart-pie card-icon"></i> <h3>Produção de Dashboards</h3>
+                    <p>Desenvolvimento de painéis analíticos (BI) interativos para visualização de dados e suporte à tomada de decisão.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-server card-icon"></i>
+                    <h3>Desenvolvimento Back-end</h3>
+                    <p>Construção de lógica robusta utilizando PHP e integrações SQL, focando em segurança e processamento de dados.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-globe card-icon"></i>
+                    <h3>Desenvolvimento Web</h3>
+                    <p>Criação de sites e sistemas responsivos (Full-stack), otimizados para performance e SEO.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-camera-retro card-icon"></i>
+                    <h3>Curadoria Visual</h3>
+                    <p>Tratamento de imagens e layout criativo para e-commerces e vitrines digitais, valorizando a estética do produto.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-laptop-code card-icon"></i>
+                    <h3>Consultoria Técnica</h3>
+                    <p>Análise de requisitos e desenvolvimento de soluções sob medida (Custom Code ou CMS) para negócios.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects-section">
+            <h2 class="section-title">Projetos CMS</h2>
+            <p style="color: var(--text-gray); margin-bottom: 30px;">Soluções ágeis desenvolvidas com WordPress e Elementor.</p>
+
+            <div class="grid-3" id="projects-cms">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="site-PGR-Advogados.png" alt="PGR Advocacia Website">
+                    </div>
+                    <div class="project-content">
+                        <h3>PGR Advocacia Empresarial</h3>
+                        <p class="project-desc">Portal institucional sóbrio e autoritário para escritório de advocacia.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">WordPress</span>
+                            <span class="tech-badge">Elementor</span>
+                            <span class="tech-badge">SEO</span>
+                        </div>
+                        <div class="project-skills">
+                            <strong>Habilidades:</strong> Web Design Institucional, UX Corporativo.
+                        </div>
+                        <div class="project-links">
+                            <a href="https://pgr.adv.br/" target="_blank"><i class="fas fa-external-link-alt"></i> Visitar Site</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="site-grupoWGS.png" alt="GrupoWGS Website">
+                    </div>
+                    <div class="project-content">
+                        <h3>GrupoWGS</h3>
+                        <p class="project-desc">Website corporativo focado em serviços terceirizados e conversão B2B.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">WordPress</span>
+                            <span class="tech-badge">API Mapas</span>
+                            <span class="tech-badge">HTML/CSS</span>
+                        </div>
+                        <div class="project-skills">
+                            <strong>Habilidades:</strong> Estruturação de Conteúdo, Design Responsivo.
+                        </div>
+                        <div class="project-links">
+                            <a href="https://www.grupowgs.com.br/" target="_blank"><i class="fas fa-external-link-alt"></i> Visitar Site</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="site-Decorperson.png" alt="Decorperson Website">
+                    </div>
+                    <div class="project-content">
+                        <h3>Decorperson</h3>
+                        <p class="project-desc">Plataforma visual para decoração, priorizando imagens de alta qualidade.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">WordPress</span>
+                            <span class="tech-badge">Catálogo Digital</span>
+                        </div>
+                        <div class="project-skills">
+                            <strong>Habilidades:</strong> Curadoria Visual, Tratamento de Imagens.
+                        </div>
+                        <div class="project-links">
+                            <a href="https://decorperson.com.br/" target="_blank"><i class="fas fa-external-link-alt"></i> Visitar Site</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="site-santosInsights.png" alt="Santos Insights Website">
+                    </div>
+                    <div class="project-content">
+                        <h3>Santos Insights</h3>
+                        <p class="project-desc">Portal de consultoria e conteúdo com hierarquia tipográfica otimizada.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">WordPress</span>
+                            <span class="tech-badge">Blog Layouts</span>
+                        </div>
+                        <div class="project-skills">
+                            <strong>Habilidades:</strong> Design Editorial, Otimização de Leitura.
+                        </div>
+                        <div class="project-links">
+                            <a href="https://santosinsights.com.br/" target="_blank"><i class="fas fa-external-link-alt"></i> Visitar Site</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="site-DrogariaLegtima.png" alt="Drogaria Legítima Website">
+                    </div>
+                    <div class="project-content">
+                        <h3>Drogaria Legítima</h3>
+                        <p class="project-desc">Presença digital para varejo farmacêutico com foco em identidade e ofertas.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">WordPress</span>
+                            <span class="tech-badge">WhatsApp API</span>
+                        </div>
+                        <div class="project-skills">
+                            <strong>Habilidades:</strong> Identidade Visual, UI para Varejo.
+                        </div>
+                        <div class="project-links">
+                            <a href="https://drogariaslegitima.com.br/" target="_blank"><i class="fas fa-external-link-alt"></i> Visitar Site</a>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+
+            <div class="mt-large">
+                <h2 class="section-title">Código Customizado</h2>
+                <p style="color: var(--text-gray); margin-bottom: 30px;">
+                    Performance extrema e controle total do layout.
+                </p>
+            </div>
+
+            <div class="grid-3" id="projects-code">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="site-atronMotores.png" alt="Atron Motores Website">
+                    </div>
+                    <div class="project-content">
+                        <h3>Atron Motores</h3>
+                        <p class="project-desc">Front-end moderno com animações fluidas e código limpo.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">HTML5/CSS3</span>
+                            <span class="tech-badge">JS ES6+</span>
+                            <span class="tech-badge">Performance</span>
+                        </div>
+                        <div class="project-skills">
+                            <strong>Habilidades:</strong> Código Estruturado, Animações CSS.
+                        </div>
+                        <div class="project-links">
+                            <a href="https://www.atron.com.br/" target="_blank"><i class="fas fa-external-link-alt"></i> Visitar Site</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="site-atriumDesign.png" alt="Atrium Design Website">
+                    </div>
+                    <div class="project-content">
+                        <h3>AtriumDesign</h3>
+                        <p class="project-desc">Layout exclusivo "pixel perfect" sem uso de CMS pronto.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">HTML5/CSS3</span>
+                            <span class="tech-badge">CSS Grid</span>
+                        </div>
+                        <div class="project-skills">
+                            <strong>Habilidades:</strong> Conversão de Layout, Pixel Perfect.
+                        </div>
+                        <div class="project-links">
+                            <a href="https://atriumdesign.com.br/" target="_blank"><i class="fas fa-external-link-alt"></i> Visitar Site</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <span class="badge-wip">Em Desenvolvimento</span>
+                    <div class="project-img project-img-placeholder">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Luten</h3>
+                        <p class="project-desc">Site para administração de terceirizados. Foco em tecnologias modernas e escalabilidade.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">HTML5 Semântico</span>
+                            <span class="tech-badge">Netlify</span>
+                        </div>
+                        <div class="project-links">
+                            <span style="color: var(--text-gray); font-size: 0.9rem;"><i class="fas fa-clock"></i> Em Breve</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <span class="badge-wip">Em Desenvolvimento</span>
+                    <div class="project-img project-img-placeholder">
+                        <i class="fas fa-paint-roller"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Preta Pretinha</h3>
+                        <p class="project-desc">Reformulação de marca com foco em identidade cultural e acessibilidade.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">HTML5</span>
+                            <span class="tech-badge">E-commerce</span>
+                        </div>
+                        <div class="project-links">
+                            <span style="color: var(--text-gray); font-size: 0.9rem;"><i class="fas fa-clock"></i> Em Breve</span>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+
+            <div class="mt-large">
+                <h2 class="section-title">Sistemas Web & Aplicações</h2>
+                <p style="color: var(--text-gray); margin-bottom: 30px;">
+                    Automação, lógica de negócios e sistemas de gestão.
+                </p>
+            </div>
+
+            <div class="grid-3" id="projects-apps">
+                <div class="project-card">
+                    <div class="project-img project-img-placeholder" style="background-color: #1a1a2e;">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Sistema Orçamentos (Atrium)</h3>
+                        <p class="project-desc">Automação de propostas comerciais via web, substituindo planilhas.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">JS Avançado</span>
+                            <span class="tech-badge">PHP</span>
+                        </div>
+                        <div class="project-skills">
+                            <strong>Habilidades:</strong> Lógica de Negócios, Digitalização.
+                        </div>
+                        <div class="project-links">
+                            <span style="color: var(--text-gray); font-size: 0.9rem;"><i class="fas fa-lock"></i> Sistema Interno</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-img project-video">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/FfqcYiPwP4U" title="ERP Corporativo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="project-content">
+                        <h3>ERP Corporativo</h3>
+                        <p class="project-desc">Sistema Full-Stack de gestão integrada (Estoque, Vendas, RH, BI).</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">PHP/SQL</span>
+                            <span class="tech-badge">API REST</span>
+                        </div>
+                        <div class="project-skills">
+                            <strong>Habilidades:</strong> Arquitetura de Software, Modelagem SQL.
+                        </div>
+                        <div class="project-links">
+                             <span style="color: var(--text-gray); font-size: 0.9rem;"><i class="fas fa-eye"></i> Vídeo (Link Privado)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+    <h2 class="section-title">Conecte-se comigo</h2>
+    
+    <form class="contact-form" name="contact" method="POST" data-netlify="true">
+        
+        <input type="hidden" name="form-name" value="contact">
+
+        <div class="form-group">
+            <input type="email" name="email" placeholder="Seu Email" required>
+        </div>
+        
+        <div class="form-group">
+            <textarea name="message" rows="5" placeholder="Sua Mensagem" required></textarea>
+        </div>
+        
+        <button type="submit" class="btn">
+            Enviar Mensagem <i class="fas fa-paper-plane" style="font-size: 0.8rem; margin-left: 5px;"></i>
+        </button>
+    </form>
+</section>
+
+    <script>
+    // Seleciona o formulário
+    const contactForm = document.querySelector(".contact-form");
+
+    // Intercepta o envio
+    contactForm.addEventListener("submit", (e) => {
+        e.preventDefault(); // Impede o recarregamento da página
+
+        const formData = new FormData(contactForm);
+        
+        // Botão visualmente carregando (opcional, mas boa UX)
+        const btn = contactForm.querySelector("button");
+        const originalText = btn.innerHTML;
+        btn.innerHTML = "Enviando...";
+        btn.disabled = true;
+
+        fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(formData).toString(),
+        })
+        .then(() => {
+            alert("Mensagem enviada com sucesso! Entrarei em contato em breve.");
+            contactForm.reset(); // Limpa os campos
+        })
+        .catch((error) => {
+            alert("Ocorreu um erro ao enviar. Tente novamente.");
+            console.error(error);
+        })
+        .finally(() => {
+            // Restaura o botão
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+        });
+    });
+
+    // --- CÓDIGO DA NAV BAR (SCROLL SPY) MANTIDO ---
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    window.onscroll = () => {
+        let current = "";
+        sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                current = section.getAttribute("id");
+            }
+        });
+        navLinks.forEach((li) => {
+            li.classList.remove("active");
+            if (li.getAttribute("href").includes(current)) {
+                li.classList.add("active");
+            }
+        });
+    };
+</script>
+
+</body>
+</html>
