@@ -4,9 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfólio - Eduardo Figueiredo</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    
+    <meta name="description" content="Portfólio de Desenvolvedor Web Full Stack especializado em sistemas complexos, ERPs e Dashboards.">
+    <meta name="author" content="Eduardo Figueiredo">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://seu-projeto.netlify.app/">
+    <meta property="og:title" content="Eduardo Figueiredo | Desenvolvedor Web Full Stack">
+    <meta property="og:description" content="Especialista em criar aplicações modernas. Veja projetos reais de ERPs e Sites Institucionais.">
+    <meta property="og:image" content="https://seu-projeto.netlify.app/capa-social.png">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://seu-projeto.netlify.app/">
+    <meta property="twitter:title" content="Eduardo Figueiredo | Desenvolvedor Web Full Stack">
+    <meta property="twitter:description" content="Especialista em criar aplicações modernas. Veja projetos reais de ERPs e Sites Institucionais.">
+    <meta property="twitter:image" content="https://seu-projeto.netlify.app/capa-social.png">
 </head>
 <body>
 
@@ -22,6 +41,7 @@
             <nav>
                 <ul>
                     <li><a href="#hero" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">Sobre</a></li>
                     <li><a href="#skills" class="nav-link">Habilidades</a></li>
                     <li><a href="#projects" class="nav-link">Projetos</a></li>
                     <li><a href="#contact" class="nav-link">Contato</a></li>
@@ -35,6 +55,46 @@
             <a href="#contact" class="btn">Entre em contato comigo</a>
         </section>
 
+        <section id="about" class="about-section">
+    <div class="grid-2 about-container">
+        <div class="about-text">
+            <h2 class="section-title">Sobre Mim</h2>
+            <h3 class="section-subtitle-highlight">Desenvolvedor Full Stack em formação.</h3>
+            
+            <p>
+                Com experiência em transformar necessidades complexas de negócios em software funcional e intuitivo. Minha paixão não é apenas escrever código, mas criar soluções que otimizam processos e geram valor real.
+            </p>
+            <p style="margin-top: 15px;">
+                Especializado no desenvolvimento de <strong>Sistemas Web Robustos</strong>, <strong>ERPs personalizados</strong> e <strong>Dashboards Interativos</strong>. Combino a agilidade de CMS como WordPress com o poder do desenvolvimento "hand-coded" (PHP, JS Avançado) para entregar exatamente o que o projeto precisa, sem limitações.
+            </p>
+
+            <div class="about-actions">
+                <a href="#contact" class="btn btn-icon">
+                    Entre em contato <i class="fas fa-phone"></i>
+                </a>
+
+                <div class="social-buttons">
+                    <a href="https://www.linkedin.com/in/eduardo-soares-figueiredo/" target="_blank" class="social-btn" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/EduardoFigueiredo05" target="_blank" class="social-btn" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://wa.me/5511969299924" target="_blank" class="social-btn" aria-label="WhatsApp">
+                         <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-image-container">
+            <div class="about-img-placeholder glow-effect">
+                <img src="/imgs/EduardoSoaresFigueiredo.jpeg" alt="Eduardo Figueiredo">
+            </div>
+        </div>
+    </div>
+</section>
+
         <section id="skills" class="skills-section">
             <h2 class="section-title">Habilidades</h2>
             
@@ -45,7 +105,8 @@
                     <p>Gerenciamento seguro de código e colaboração eficiente em projetos, garantindo histórico e integridade do software.</p>
                 </div>
                 <div class="card">
-                    <i class="fas fa-chart-pie card-icon"></i> <h3>Produção de Dashboards</h3>
+                    <i class="fas fa-chart-pie card-icon"></i> 
+                    <h3>Produção de Dashboards</h3>
                     <p>Desenvolvimento de painéis analíticos (BI) interativos para visualização de dados e suporte à tomada de decisão.</p>
                 </div>
                 <div class="card">
@@ -69,6 +130,8 @@
                     <p>Análise de requisitos e desenvolvimento de soluções sob medida (Custom Code ou CMS) para negócios.</p>
                 </div>
             </div>
+
+            
         </section>
 
         <section id="projects" class="projects-section">
@@ -78,7 +141,7 @@
             <div class="grid-3" id="projects-cms">
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="/imgs/site-PGR-Advogados.png" alt="PGR Advocacia Website">
+                        <img src="/imgs/site-PGR-Advogados.png" alt="PGR Advocacia Website" loading="lazy">
                     </div>
                     <div class="project-content">
                         <h3>PGR Advocacia Empresarial</h3>
@@ -99,7 +162,7 @@
 
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="/imgs/site-grupoWGS.png" alt="GrupoWGS Website">
+                        <img src="/imgs/site-grupoWGS.png" alt="GrupoWGS Website" loading="lazy">
                     </div>
                     <div class="project-content">
                         <h3>GrupoWGS</h3>
@@ -120,7 +183,7 @@
 
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="/imgs/site-Decorperson.png" alt="Decorperson Website">
+                        <img src="/imgs/site-Decorperson.png" alt="Decorperson Website" loading="lazy">
                     </div>
                     <div class="project-content">
                         <h3>Decorperson</h3>
@@ -138,10 +201,9 @@
                     </div>
                 </div>
 
-
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="/imgs/site-DrogariaLegtima.png" alt="Drogaria Legítima Website">
+                        <img src="/imgs/site-DrogariaLegtima.png" alt="Drogaria Legítima Website" loading="lazy">
                     </div>
                     <div class="project-content">
                         <h3>Drogaria Legítima</h3>
@@ -170,7 +232,7 @@
             <div class="grid-3" id="projects-code">
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="/imgs/site-atronMotores.png" alt="Atron Motores Website">
+                        <img src="/imgs/site-atronMotores.png" alt="Atron Motores Website" loading="lazy">
                     </div>
                     <div class="project-content">
                         <h3>Atron Motores</h3>
@@ -191,7 +253,7 @@
 
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="/imgs/site-atriumDesign.png" alt="Atrium Design Website">
+                        <img src="/imgs/site-atriumDesign.png" alt="Atrium Design Website" loading="lazy">
                     </div>
                     <div class="project-content">
                         <h3>AtriumDesign</h3>
@@ -210,19 +272,19 @@
                 </div>
 
                 <div class="project-card">
-                    <span class="badge-wip">Em Desenvolvimento</span>
-                    <div class="project-img project-img-placeholder">
-                        <i class="fas fa-hard-hat"></i>
+                   <div class="project-img">
+                        <img src="/imgs/site-Luten.png" alt="Luten Website" loading="lazy">
                     </div>
                     <div class="project-content">
                         <h3>Luten</h3>
-                        <p class="project-desc">Site para administração de terceirizados. Foco em tecnologias modernas e escalabilidade.</p>
+                        <p class="project-desc">Web Site para uma empresa de serviços de manutenção e reparos.</p>
                         <div class="project-tech">
                             <span class="tech-badge">HTML5 Semântico</span>
-                            <span class="tech-badge">Netlify</span>
+                            <span class="tech-badge">CSS3</span>
+                            <span class="tech-badge">JavaScript</span>
                         </div>
-                        <div class="project-links">
-                            <span style="color: var(--text-gray); font-size: 0.9rem;"><i class="fas fa-clock"></i> Em Breve</span>
+                       <div class="project-links">
+                            <a href="https://lutenfacilitys.com.br/" target="_blank"><i class="fas fa-external-link-alt"></i> Visitar Site</a>
                         </div>
                     </div>
                 </div>
@@ -275,8 +337,8 @@
                 </div>
 
                 <div class="project-card">
-                  <div class="project-img project-img-placeholder" style="background-color: #1a1a2e;">
-                        <i class="fas fa-file-invoice-dollar"></i>
+                    <div class="project-img project-video">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/FfqcYiPwP4U" title="ERP Corporativo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="project-content">
                         <h3>ERP Corporativo</h3>
@@ -297,26 +359,30 @@
         </section>
 
         <section id="contact" class="contact-section">
-    <h2 class="section-title">Conecte-se comigo</h2>
-    
-    <form class="contact-form" name="contact" method="POST" data-netlify="true">
-        
-        <input type="hidden" name="form-name" value="contact">
+            <h2 class="section-title">Conecte-se comigo</h2>
+            
+            <form class="contact-form" name="contact" method="POST" data-netlify="true">
+                <input type="hidden" name="form-name" value="contact">
 
-        <div class="form-group">
-            <input type="email" name="email" placeholder="Seu Email" required>
-        </div>
-        
-        <div class="form-group">
-            <textarea name="message" rows="5" placeholder="Sua Mensagem" required></textarea>
-        </div>
-        
-        <button type="submit" class="btn">
-            Enviar Mensagem <i class="fas fa-paper-plane" style="font-size: 0.8rem; margin-left: 5px;"></i>
-        </button>
-    </form>
-</section>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Seu Email" required>
+                </div>
+                
+                <div class="form-group">
+                    <textarea name="message" rows="5" placeholder="Sua Mensagem" required></textarea>
+                </div>
+                
+                <button type="submit" class="btn">
+                    Enviar Mensagem <i class="fas fa-paper-plane" style="font-size: 0.8rem; margin-left: 5px;"></i>
+                </button>
+            </form>
+        </section>
 
-<script src="./main.js"></script>
+        <footer style="padding: 20px 0; text-align: center; color: #555; font-size: 0.8rem;">
+            &copy; 2024 Amogoe Portfólio
+        </footer>
+    </div>
+
+    <script src="./main.js"></script>
 </body>
 </html>
